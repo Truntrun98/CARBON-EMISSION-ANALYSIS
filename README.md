@@ -2,7 +2,7 @@
 This project is aim to analize the level of carbon emission based on industry fields, countries, time and more...
 
 
-## 1.The top 10 products contributing the most to the carbon emission:
+## 1. The top 10 products contributing the most to the carbon emission in average
 ### CODE to findout:
 ```sql
 SELECT product_name, ROUND(AVG(carbon_footprint_pcf),2) 
@@ -27,7 +27,7 @@ LIMIT 10;
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00               | 
 | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00               |
 
-## 2.Which industry group do those 10 products belong to?
+## 2. Which industry group do those 10 products belong to?
 ### CODE to findout:
 ```sql
 SELECT ig.industry_group as "Industry group", 
@@ -56,7 +56,7 @@ LIMIT 10;
 | Automobiles & Components           | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000.00               | 
 | Automobiles & Components           | Mercedes-Benz SL (SL 350)                                                                                                          | 72000.00               | 
 
-## 3. The top 10 industries with the hightest level of carbon emission
+## 3. The top 10 industries with the hightest level of carbon emission in average
 ### CODE to findout:
 ```sql
 SELECT ig.industry_group as "Industry group",  
@@ -83,3 +83,31 @@ LIMIT 10;
 | Chemicals                                        | 1949.03                | 
 | Media                                            | 1534.47                | 
 | Software & Services                              | 1368.94                | 
+
+## 4. Top 10 companies with the highest contribution to carbon emssion in average
+### CODE to findout:
+```sql
+SELECT c.company_name as "Company name",  
+	   ROUND(AVG(pe.carbon_footprint_pcf),2) as "Carbon emission amount" 
+FROM product_emissions pe
+	                     LEFT JOIN companies c
+				         ON pe.company_id = c.id
+GROUP BY c.company_name
+ORDER BY ROUND(AVG(pe.carbon_footprint_pcf),2) DESC
+LIMIT 10;
+```
+### Explanation:
+
+### Result:
+| Company name                           | Carbon emission amount | 
+| -------------------------------------: | ---------------------: | 
+| "Gamesa Corporación Tecnológica, S.A." | 2444616.00             | 
+| "Hino Motors, Ltd."                    | 191687.00              | 
+| Arcelor Mittal                         | 83503.50               | 
+| Weg S/A                                | 53551.67               | 
+| Daimler AG                             | 43089.19               | 
+| General Motors Company                 | 34251.75               | 
+| Volkswagen AG                          | 26238.40               | 
+| Waters Corporation                     | 24162.00               | 
+| "Daikin Industries, Ltd."              | 17600.00               | 
+| CJ Cheiljedang                         | 15802.83               | 
