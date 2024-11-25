@@ -138,3 +138,24 @@ LIMIT 10;
 | India        | 1535.88                | 
 | USA          | 1332.60                | 
 | South Africa | 1119.27                | 
+
+## 6. Average Carbon emission trend over year
+### CODE to findout:
+```sql
+SELECT year as Year,
+	   ROUND(AVG(carbon_footprint_pcf),2) as "Carbon emission amount"
+FROM product_emissions
+GROUP BY year
+ORDER BY year;
+```
+### Explanation:
+### Result:
+| Year | Carbon emission amount | 
+| ---: | ---------------------: | 
+| 2013 | 2399.32                | 
+| 2014 | 2457.58                | 
+| 2015 | 43188.90               | 
+| 2016 | 6891.52                | 
+| 2017 | 4050.85                | 
+
+
