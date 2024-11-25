@@ -111,3 +111,30 @@ LIMIT 10;
 | Waters Corporation                     | 24162.00               | 
 | "Daikin Industries, Ltd."              | 17600.00               | 
 | CJ Cheiljedang                         | 15802.83               | 
+
+## 5. Top 10 countries with the highest contribution to carbon emssion in average
+### CODE to findout:
+```sql
+SELECT ct.country_name as "Country",  
+	   ROUND(AVG(pe.carbon_footprint_pcf),2) as "Carbon emission amount" 
+FROM product_emissions pe
+	                     LEFT JOIN countries ct
+				         ON pe.country_id = ct.id
+GROUP BY ct.country_name
+ORDER BY ROUND(AVG(pe.carbon_footprint_pcf),2) DESC
+LIMIT 10;
+```
+### Explanation:
+### Result:
+| Country      | Carbon emission amount | 
+| -----------: | ---------------------: | 
+| Spain        | 699009.29              | 
+| Luxembourg   | 83503.50               | 
+| Germany      | 33600.37               | 
+| Brazil       | 9407.61                | 
+| South Korea  | 5665.61                | 
+| Japan        | 4600.26                | 
+| Netherlands  | 2011.91                | 
+| India        | 1535.88                | 
+| USA          | 1332.60                | 
+| South Africa | 1119.27                | 
