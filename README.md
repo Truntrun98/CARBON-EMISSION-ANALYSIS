@@ -35,6 +35,7 @@ This project is aim to analize the level of carbon emission based on industry fi
 | 5  | Chile        | 
 
 ## DATA TABLE RELATIONSHIP
+![image](https://github.com/user-attachments/assets/821d5ade-b960-46ed-bf80-edb26fde3f39)
 
 
 ## 1. The top 10 products contributing the most to the carbon emission in average
