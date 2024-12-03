@@ -49,11 +49,17 @@ LIMIT 10;
 ```
 ### CODE explanation:
 SELECT: Chooses product_name and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places.
+
 ROUND: Rounds the average to 2 decimal places for neatness.
+
 AVG: Calculates the average carbon footprint for each product.
+
 FROM: Specifies product_emissions as the table to get data from.
+
 GROUP BY: Groups data by product_name so averages are calculated per product.
+
 ORDER BY: Sorts the results by the rounded average, in descending order (highest to lowest).
+
 LIMIT: Restricts the output to the top 10 rows.
 ### Result:
 | Product name                                                                                                                       | Carbon emission amount | 
