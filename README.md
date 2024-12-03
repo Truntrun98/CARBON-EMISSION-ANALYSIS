@@ -403,4 +403,4 @@ ORDER BY: Sorts the results alphabetically by industry_group.
 | Telecommunication Services                       | 5.78          | 20.33         | 20.33         | 0.00          | 0.00          | 
 | Utilities                                        | 30.50         | 0.00          | 0.00          | 30.50         | 0.00          | 
 
-This marks the completion of this small project. I hope the materials and insights provided prove to be valuable and useful.
+## This marks the completion of this small project. I hope the materials and insights provided prove to be valuable and useful.
