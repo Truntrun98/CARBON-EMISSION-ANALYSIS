@@ -90,13 +90,21 @@ LIMIT 10;
 ```
 ### CODE explanation: 
 SELECT: Chooses industry_group, product_name, and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places, renaming the output columns for clarity.
+
 ROUND: Rounds the average carbon footprint to 2 decimal places for better readability.
+
 AVG: Calculates the average carbon footprint for each product.
+
 FROM: Specifies product_emissions as the primary table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with industry_groups to include industry information for each product.
+
 ON: Defines the relationship between the two tables using industry_group_id from product_emissions and id from industry_groups.
+
 GROUP BY: Groups data by product_name so the average is calculated for each product.
+
 ORDER BY: Sorts the results by the rounded average carbon footprint in descending order (highest to lowest).
+
 LIMIT: Restricts the output to the top 10 rows.
 ### Result:
 | Industry group                     | Product name                                                                                                                       | Carbon emission amount | 
@@ -126,13 +134,21 @@ LIMIT 10;
 ```
 ### CODE explanation:
 SELECT: Chooses industry_group and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places, renaming the output columns for clarity.
+
 ROUND: Rounds the average carbon footprint to 2 decimal places for better readability.
+
 AVG: Calculates the average carbon footprint for each industry group.
+
 FROM: Specifies product_emissions as the primary table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with industry_groups to include the industry group information.
+
 ON: Defines the relationship between the two tables using industry_group_id from product_emissions and id from industry_groups.
+
 GROUP BY: Groups data by industry_group so the average is calculated for each industry group.
+
 ORDER BY: Sorts the results by the rounded average carbon footprint in descending order (highest to lowest).
+
 LIMIT: Restricts the output to the top 10 rows.
 ### Result:
 | Industry group                                   | Carbon emission amount | 
@@ -162,13 +178,21 @@ LIMIT 10;
 ```
 ### CODE explanation:
 SELECT: Chooses company_name and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places, renaming the output columns for clarity.
+
 ROUND: Rounds the average carbon footprint to 2 decimal places for better readability.
+
 AVG: Calculates the average carbon footprint for each company.
+
 FROM: Specifies product_emissions as the primary table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with companies to include the company information.
+
 ON: Defines the relationship between the two tables using company_id from product_emissions and id from companies.
+
 GROUP BY: Groups data by company_name so the average is calculated for each company.
+
 ORDER BY: Sorts the results by the rounded average carbon footprint in descending order (highest to lowest).
+
 LIMIT: Restricts the output to the top 10 rows.
 ### Result:
 | Company name                           | Carbon emission amount | 
@@ -198,13 +222,21 @@ LIMIT 10;
 ```
 ### CODE explanation:
 SELECT: Chooses country_name and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places, renaming the output columns for clarity.
+
 ROUND: Rounds the average carbon footprint to 2 decimal places for better readability.
+
 AVG: Calculates the average carbon footprint for each country.
+
 FROM: Specifies product_emissions as the primary table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with countries to include the country information.
+
 ON: Defines the relationship between the two tables using country_id from product_emissions and id from countries.
+
 GROUP BY: Groups data by country_name so the average is calculated for each country.
+
 ORDER BY: Sorts the results by the rounded average carbon footprint in descending order (highest to lowest).
+
 LIMIT: Restricts the output to the top 10 rows.
 ### Result:
 | Country      | Carbon emission amount | 
@@ -231,10 +263,15 @@ ORDER BY year;
 ```
 ### CODE explanation:
 SELECT: Chooses year and the average carbon footprint (carbon_footprint_pcf) rounded to 2 decimal places, renaming the output column for clarity.
+
 ROUND: Rounds the average carbon footprint to 2 decimal places for better readability.
+
 AVG: Calculates the average carbon footprint for each year.
+
 FROM: Specifies product_emissions as the table to retrieve data from.
+
 GROUP BY: Groups data by year so the average is calculated for each year.
+
 ORDER BY: Sorts the results by year in ascending order (earliest to latest).
 ### Result:
 | Year | Carbon emission amount | 
@@ -265,13 +302,21 @@ ORDER BY ig.industry_group;
 SELECT:
 	Chooses industry_group to identify each industry group and renames it as "Industry group."
 	Calculates the average carbon footprint (carbon_footprint_pcf) for each year (2013 to 2017) using CASE statements to filter values year by year. If the year matches, it includes the carbon footprint; otherwise, it substitutes 0. The averages are rounded to 2 	decimal places and renamed as "2013 emission," "2014 emission," etc.
+
 ROUND: Rounds the calculated yearly average emissions to 2 decimal places for clarity.
+
 CASE: Filters data for specific years.
+
 AVG: Calculates the average carbon footprint for the filtered data of each year.
+
 FROM: Specifies product_emissions as the primary table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with industry_groups to associate each emission with its respective industry group.
+
 ON: Defines the relationship between the two tables using industry_group_id from product_emissions and id from industry_groups.
+
 GROUP BY: Groups data by industry_group so averages can be calculated per industry group for each year.
+
 ORDER BY: Sorts the results alphabetically by industry_group.
 ### Result:
 | Industry group                                                         | 2013 emission | 2014 emission | 2015 emission | 2016 emission | 2017 emission | 
@@ -325,15 +370,24 @@ ORDER BY ig.industry_group;
 ```
 ### CODE explanation:
 SELECT: Chooses industry_group and calculates the average carbon footprint for each year (2013 to 2017) using CASE statements. Each average is rounded to 2 decimal places and labeled as "2013 emission," "2014 emission," etc.
+
 ROUND: Rounds the calculated yearly average emissions to 2 decimal places for clarity.
+
 CASE: Filters data for specific years. For instance:
+
 AVG: Calculates the average carbon footprint for the filtered data of each year.
+
 FROM: Specifies product_emissions as the main table to retrieve data from.
+
 LEFT JOIN: Combines product_emissions with industry_groups to associate each emission record with its respective industry group.
+
 ON: Defines the join condition where industry_group_id in product_emissions matches id in industry_groups.
+
 GROUP BY: Groups data by industry_group, so averages are calculated for each industry group for each year.
+
 HAVING: Adds a condition to filter the grouped results:
 Keeps only the industry groups where the average carbon footprint for 2017 is less than the average carbon footprint for 2013.
+
 ORDER BY: Sorts the results alphabetically by industry_group.
 ### Result:
 | Industry group                                   | 2013 emission | 2014 emission | 2015 emission | 2016 emission | 2017 emission | 
